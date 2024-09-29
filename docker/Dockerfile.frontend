@@ -1,0 +1,17 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY src/frontend/package*.json ./
+
+RUN npm install
+
+COPY src/frontend/.env ./
+
+COPY src/frontend ./
+
+
+EXPOSE 80
+
+CMD ["npm", "start"]
+
